@@ -5,7 +5,7 @@
 #### 1.1. Сети и маски
 ##### 1) Адрес сети *192.167.38.54/13*
 
-- ![адрес сети](src/screens/1_1_1.png)
+- ![адрес сети](screens/1_1_1.png)
 `-` адрес сети (Network) 192.160.0.0
 
 ##### 2) Перевод маски *255.255.255.0* в префиксную и двоичную запись, */15* в обычную и двоичную, *11111111.11111111.11111111.11110000* в обычную и префиксную
@@ -13,24 +13,24 @@
 ##### 2.1)
 
 `-` маска *255.255.255.0* в префиксной записи /24
-- ![маска сети 24](src/screens/1_1_2.png)
+- ![маска сети 24](screens/1_1_2.png)
 `-` маска (Netmask) *255.255.255.0* в двоичной записи *11111111.11111111.11111111.00000000*
 
 ##### 2.2)
 
-- ![маска сети 15](src/screens/1_1_3.png)
+- ![маска сети 15](screens/1_1_3.png)
 `-` маска (Netmask) */15* в обычной записи *255.254.0.0*, в двоичной *11111111.11111110.00000000.00000000* 
 
 ##### 2.3)
 
-- ![маска сети 28](src/screens/1_1_4.png)
+- ![маска сети 28](screens/1_1_4.png)
 `-` маска (Netmask) *11111111.11111111.11111111.11110000* в обычной записи *255.255.255.240*, в префиксной */28*
 
 ##### 3) Минимальный и максимальный хост в сети *12.167.38.4* при масках: */8*, *11111111.11111111.00000000.00000000*, *255.255.254.0* и */4*
 
 ##### 3.1)
 
-- ![макс мин хост 1](src/screens/1_1_5.png)
+- ![макс мин хост 1](screens/1_1_5.png)
 В сети *12.167.38.4* при маске */8*:
 
 `-` Максимальный хост *12.255.255.254*
@@ -39,7 +39,7 @@
 
 ##### 3.2)
 
-- ![макс мин хост 2](src/screens/1_1_6.png)
+- ![макс мин хост 2](screens/1_1_6.png)
 В сети *12.167.38.4* при маске *11111111.11111111.00000000.00000000*:
 
 `-` Максимальный хост *12.167.255.254*
@@ -48,7 +48,7 @@
 
 ##### 3.3)
 
-- ![макс мин хост 3](src/screens/1_1_7.png)
+- ![макс мин хост 3](screens/1_1_7.png)
 В сети *12.167.38.4* при маске *255.255.254.0*:
 
 `-` Максимальный хост *12.167.39.254*
@@ -57,7 +57,7 @@
 
 ##### 3.4)
 
-- ![макс мин хост 4](src/screens/1_1_8.png)
+- ![макс мин хост 4](screens/1_1_8.png)
 В сети *12.167.38.4* при маске */4*:
 
 `-` Максимальный хост *15.255.255.254*
@@ -103,17 +103,17 @@ IP адреса, у которых в Hosts/Net помечено Private Interne
 ##### Поднять две виртуальные машины (далее -- ws1 и ws2)
 
 ##### С помощью команды `ip a` посмотреть существующие сетевые интерфейсы
-- ![ip a](src/screens/2_0_ipa.png)
+- ![ip a](screens/2_0_ipa.png)
 ##### Описать сетевой интерфейс, соответствующий внутренней сети, на обеих машинах и задать следующие адреса и маски: ws1 - *192.168.100.10*, маска */16*, ws2 - *172.24.116.8*, маска */12*
 ##### Выполнить команду `netplan apply` для перезапуска сервиса сети
-- ![ip mask](src/screens/2_0_netplan.png)
+- ![ip mask](screens/2_0_netplan.png)
 Проверим с помощью `ip a` что всё установилось
-- ![ip a check](src/screens/2_0_ipa_check.png)
+- ![ip a check](screens/2_0_ipa_check.png)
 
 #### 2.1. Добавление статического маршрута вручную
 ##### Добавить статический маршрут от одной машины до другой и обратно при помощи команды вида `ip r add`
 ##### Пропинговать соединение между машинами
-- ![ping](src/screens/2_1_ping.png)
+- ![ping](screens/2_1_ping.png)
 
 #### 2.2. Добавление статического маршрута с сохранением
 ```shell
@@ -121,7 +121,7 @@ IP адреса, у которых в Hosts/Net помечено Private Interne
 
 - Пропинговать соединение между машинами
 ```
-- ![static and ping](src/screens/2_2_static.png)
+- ![static and ping](screens/2_2_static.png)
 
 ## Part 3. Утилита **iperf3**
 
@@ -135,7 +135,7 @@ IP адреса, у которых в Hosts/Net помечено Private Interne
 
 #### 3.2. Утилита **iperf3**
 ##### Измерить скорость соединения между ws1 и ws2
-- ![iperf3](src/screens/3_2.png)
+- ![iperf3](screens/3_2.png)
 
 ## Part 4. Сетевой экран
 #### 4.1. Утилита **iptables**
@@ -147,79 +147,79 @@ IP адреса, у которых в Hosts/Net помечено Private Interne
 4) запретить *echo reply* (машина не должна "пинговаться”, т.е. должна быть блокировка на OUTPUT)
 5) разрешить *echo reply* (машина должна "пинговаться")
 ```
-- ![iptables](src/screens/4_1.png)
+- ![iptables](screens/4_1.png)
 `-` Исполняется в каждом случае то действие, которое указано первым. На машине ws1 - запрещающее правило, на ws2 - разрешающее.
 
 #### 4.2. Утилита **nmap**
 ```shell
 Командой **ping** найти машину, которая не "пингуется", после чего утилитой **nmap** показать, что хост машины запущен
 ```
-- ![ping nmap](src/screens/4_2.png)
+- ![ping nmap](screens/4_2.png)
 
 ## Part 5. Статическая маршрутизация сети
 
 #### 5.1. Настройка адресов машин
 `-` Настроить конфигурации машин в *etc/netplan/00-installer-config.yaml* согласно сети на рисунке.
 
-- ![ws11](src/screens/5_1_ws11.png)
-- ![ws21](src/screens/5_1_ws21.png)
-- ![ws22](src/screens/5_1_ws22.png)
-- ![r1](src/screens/5_1_r1.png)
-- ![r2](src/screens/5_1_r2.png)
+- ![ws11](screens/5_1_ws11.png)
+- ![ws21](screens/5_1_ws21.png)
+- ![ws22](screens/5_1_ws22.png)
+- ![r1](screens/5_1_r1.png)
+- ![r2](screens/5_1_r2.png)
 
 `-` Перезапустить сервис сети. Проверка после командой `ip -4 a`.
 
-- ![ip4 ws11](src/screens/5_1_ip4_ws11.png)
-- ![ip4 ws21](src/screens/5_1_ip4_ws21.png)
-- ![ip4 ws22](src/screens/5_1_ip4_ws22.png)
-- ![ip4 r1](src/screens/5_1_ip4_r1.png)
-- ![ip4 r2](src/screens/5_1_ip4_r2.png)
+- ![ip4 ws11](screens/5_1_ip4_ws11.png)
+- ![ip4 ws21](screens/5_1_ip4_ws21.png)
+- ![ip4 ws22](screens/5_1_ip4_ws22.png)
+- ![ip4 r1](screens/5_1_ip4_r1.png)
+- ![ip4 r2](screens/5_1_ip4_r2.png)
 
 `-` Пинг ws22 с ws21. 
 
-- ![ping 1](src/screens/5_1_ping1.png)
+- ![ping 1](screens/5_1_ping1.png)
 
 `-` Аналогично пинг r1 с ws11.
 
-- ![ping 2](src/screens/5_1_ping2.png)
+- ![ping 2](screens/5_1_ping2.png)
 
 #### 5.2. Включение переадресации IP-адресов
 
 `-` Для включения переадресации IP, выполним команду на роутерах:
 `sysctl -w net.ipv4.ip_forward=1`
 
-- ![sysctl r1](src/screens/5_2_r1.png)
-- ![sysctl r2](src/screens/5_2_r2.png)
+- ![sysctl r1](screens/5_2_r1.png)
+- ![sysctl r2](screens/5_2_r2.png)
 
 `-` Откроем файл */etc/sysctl.conf* и добавим в него следующую строку:
 `net.ipv4.ip_forward = 1`. При использовании этого подхода, IP-переадресация включена на постоянной основе.
 
-- ![conf r1](src/screens/5_2_r1_conf.png)
-- ![conf r2](src/screens/5_2_r2_conf.png)
+- ![conf r1](screens/5_2_r1_conf.png)
+- ![conf r2](screens/5_2_r2_conf.png)
 
 #### 5.3. Установка маршрута по-умолчанию
 
 `-` Настроим маршрут по-умолчанию (шлюз) для рабочих станций. Вызвать `ip r` и показать, что добавился маршрут в таблицу маршрутизации
 
-- ![g4 ws11](src/screens/5_3_ipr_ws11.png)
-- ![g4 ws21](src/screens/5_3_ipr_ws21.png)
-- ![g4 ws22](src/screens/5_3_ipr_ws22.png)
+- ![g4 ws11](screens/5_3_ipr_ws11.png)
+- ![g4 ws21](screens/5_3_ipr_ws21.png)
+- ![g4 ws22](screens/5_3_ipr_ws22.png)
 
 `-` Пропингуем с ws11 роутер r2 и посмотрим на r2, что пинг доходит. Для этого используем команду: `tcpdump -tn -i eth1`
 
-- ![ping](src/screens/5_3_ping.png)
+- ![ping](screens/5_3_ping.png)
 
 #### 5.4. Добавление статических маршрутов
 
  `-` Добавим в роутеры r1 и r2 статические маршруты в файле конфигураций. Вызовим `ip r` и увидим таблицы с маршрутами на обоих роутерах.
  
- - ![tovia r1](src/screens/5_4_tovia_r1.png)
- - ![tovia r2](src/screens/5_4_tovia_r2.png)
+ - ![tovia r1](screens/5_4_tovia_r1.png)
+ - ![tovia r2](screens/5_4_tovia_r2.png)
  
  `-` Запустить команды на ws11:
 `ip r list 10.10.0.0/[маска сети]` и `ip r list 0.0.0.0/0`
 
- - ![ip r list](src/screens/5_4_iprlist.png)
+ - ![ip r list](screens/5_4_iprlist.png)
 
 > Для адреса 10.10.0.0/18 был выбран маршрут, отличный от 0.0.0.0/0, поскольку он является адресом сети и доступен без шлюза.
 
@@ -230,11 +230,11 @@ IP адреса, у которых в Hosts/Net помечено Private Interne
  `-` Запустить на r1 команду дампа:
 `tcpdump -tnv -i eth0`
 
- - ![tcpdump](src/screens/5_5_tcpdump.png)
+ - ![tcpdump](screens/5_5_tcpdump.png)
  
   `-` При помощи утилиты **traceroute** построить список маршрутизаторов на пути от ws11 до ws21
- - ![ws11 to ws21](src/screens/5_5_ws11_to_ws21.png)
- - ![res](src/screens/5_5_res.png)
+ - ![ws11 to ws21](screens/5_5_ws11_to_ws21.png)
+ - ![res](screens/5_5_res.png)
 
 > Traceroute отправляет серию пакетов данных целевому узлу. В заголовке пакета есть поле TTL (time to live) - время жизни пакета. На каждом узле TTL увеличивается на 1. Это поле обычно указывает максимальное количество маршрутизаторов, которое может быть пройдено пакетом. Первая серия пакетов отправляется с TTL, равным 1, и поэтому первый же маршрутизатор возвращает обратно ICMP-сообщение «time exceeded in transit», указывающее на невозможность доставки данных. Traceroute фиксирует адрес маршрутизатора, а также время между отправкой пакета и получением ответа (эти сведения выводятся на монитор компьютера). Затем traceroute повторяет отправку серии пакетов, но уже с TTL, равным 2, что заставляет первый маршрутизатор уменьшить TTL пакетов на единицу и направить их ко второму маршрутизатору. Второй маршрутизатор, получив пакеты с TTL=1, так же возвращает «time exceeded in transit». Чтобы узнать о завершении работы, программе traceroute достаточно обнаружить, что поступило ICMP-сообщение об ошибке этого типа.
 
@@ -243,11 +243,11 @@ IP адреса, у которых в Hosts/Net помечено Private Interne
  `-` Запустить на r1 перехват сетевого трафика, проходящего через eth0 с помощью команды:
 `tcpdump -n -i eth0 icmp`
 
- - ![tcpdump yoy](src/screens/5_6_tcpdump.png)
+ - ![tcpdump yoy](screens/5_6_tcpdump.png)
 
  `-` Пропинговать с ws11 несуществующий IP (например, *10.30.0.111*)
 
- - ![ping not exist](src/screens/5_6_ping.png)
+ - ![ping not exist](screens/5_6_ping.png)
  
 
 ## Part 6. Динамическая настройка IP с помощью **DHCP**
@@ -256,43 +256,43 @@ IP адреса, у которых в Hosts/Net помечено Private Interne
 
  1) Укажем адрес маршрутизатора по-умолчанию, DNS-сервер и адрес внутренней сети.
  
-  - ![dhcpd](src/screens/6_1_dhcpd.png)
+  - ![dhcpd](screens/6_1_dhcpd.png)
   
  2) В файле *resolv.conf* пропишем `nameserver 8.8.8.8.` Перезагрузим службу **DHCP** командой `systemctl restart isc-dhcp-server`.
  
- - ![resolv conf](src/screens/6_2_resolv_conf.png)
+ - ![resolv conf](screens/6_2_resolv_conf.png)
 
 3) Машину ws21 перезагрузим при помощи `reboot` и через `ip a` увидим, что она получила адрес. Также пропингуем ws22 с ws21.
 
- - ![ip a ping](src/screens/6_2_ping.png)
+ - ![ip a ping](screens/6_2_ping.png)
 
 4) Укажем MAC адрес у ws11
 
- - ![mac address](src/screens/6_4.png)
+ - ![mac address](screens/6_4.png)
 
  > Для r1 настроить аналогично r2, но сделать выдачу адресов с жесткой привязкой к MAC-адресу (ws11). Провести аналогичные тесты
 
  1) Укажем адрес маршрутизатора по-умолчанию, DNS-сервер и адрес внутренней сети.
  
-  - ![dhcpd](src/screens/6_5_r1_resolv.png)
+  - ![dhcpd](screens/6_5_r1_resolv.png)
   
  2) В файле *resolv.conf* пропишем `nameserver 8.8.8.8.` Перезагрузим службу **DHCP** командой `systemctl restart isc-dhcp-server`.
  
- - ![resolv conf](src/screens/6_5_r1_nameserver.png)
+ - ![resolv conf](screens/6_5_r1_nameserver.png)
 
  3) Машину ws21 перезагрузим при помощи `reboot` и через `ip a` увидим, что она получила адрес. Также пропингуем ws22 с ws21.
 
- - ![ip a ping](src/screens/6_5_ping.png)
+ - ![ip a ping](screens/6_5_ping.png)
 
 > Запросить с ws21 обновление ip адреса
 
 - ip до обновления
 
-- ![ip before](src/screens/6_6_ip_before.png)
+- ![ip before](screens/6_6_ip_before.png)
 
 - ip после обновления
 
-- ![ip before](src/screens/6_6_ip_after.png)
+- ![ip before](screens/6_6_ip_after.png)
 
 > **dhclient -r** освобождает текущую аренду от сервера. То есть таким образом мы освободили ws21 от назначенного IP.
 > **dhclient -v** запрашивает IP с DHCP сервера с включением log сообщений.
@@ -303,15 +303,15 @@ IP адреса, у которых в Hosts/Net помечено Private Interne
 > 1. В файле */etc/apache2/ports.conf* на ws22 и r2 изменить строку `Listen 80` на `Listen 0.0.0.0:80`, то есть сделать сервер Apache2 общедоступным
 
 - ws22
-- ![apache2 conf ws22](src/screens/7_0_conf_ws22.png)
+- ![apache2 conf ws22](screens/7_0_conf_ws22.png)
 
 - r2
-- ![apache2 conf r2](src/screens/7_0_conf_r2.png)
+- ![apache2 conf r2](screens/7_0_conf_r2.png)
 
 > 2. Запустить веб-сервер Apache командой `service apache2 start` на ws22 и r1
 
-- ![service ws22](src/screens/7_0_apache_ws22.png)
-- ![service r1](src/screens/7_0_apache_r1.png)
+- ![service ws22](screens/7_0_apache_ws22.png)
+- ![service r1](screens/7_0_apache_r1.png)
 
 > 3. Добавить в фаервол, созданный по аналогии с фаерволом из Части 4, на r2 следующие правила:
 > 1) Удаление правил в таблице filter - `iptables -F`
@@ -319,59 +319,59 @@ IP адреса, у которых в Hosts/Net помечено Private Interne
 > 3) Отбрасывать все маршрутизируемые пакеты - `iptables --policy FORWARD DROP`
 > - Запускать файл также, как в Части 4
 
-- ![firewall](src/screens/7_1_firewall.png)
+- ![firewall](screens/7_1_firewall.png)
 
 > Проверить соединение между ws22 и r1 командой `ping`
 
-- ![not ping 1](src/screens/7_1_ping_1.png)
-- ![not ping 2](src/screens/7_1_ping_2.png)
+- ![not ping 1](screens/7_1_ping_1.png)
+- ![not ping 2](screens/7_1_ping_2.png)
 
 > 4. Добавить в файл ещё одно правило: Разрешить маршрутизацию всех пакетов протокола **ICMP**. Запускать файл также, как в Части 4
 
-- ![new rules firewall](src/screens/7_2_newrules.png)
+- ![new rules firewall](screens/7_2_newrules.png)
 
 > Проверить соединение между ws22 и r1 командой `ping`
 
-- ![ping 1](src/screens/7_2_ping_1.png)
-- ![ping 2](src/screens/7_2_ping_2.png)
+- ![ping 1](screens/7_2_ping_1.png)
+- ![ping 2](screens/7_2_ping_2.png)
 
 > 5. Добавить в файл ещё два правила:
 > 1) Включить **SNAT**, а именно маскирование всех локальных ip из локальной сети, находящейся за r2 (по обозначениям из Части 5 - сеть 10.20.0.0)
 > 2) Включить **DNAT** на 8080 порт машины r2 и добавить к веб-серверу Apache, запущенному на ws22, доступ извне сети
 
-- ![SNAT DNAT](src/screens/7_3_SNAT_DNAT.png)
+- ![SNAT DNAT](screens/7_3_SNAT_DNAT.png)
 
 > 6. Проверить соединение по TCP для **SNAT**, для этого с ws22 подключиться к серверу Apache на r1 командой: `telnet [адрес] [порт]`
 
-- ![SNAT telnet](src/screens/7_4_SNAT_telnet.png)
+- ![SNAT telnet](screens/7_4_SNAT_telnet.png)
 
 > 7. Проверить соединение по TCP для **DNAT**, для этого с r1 подключиться к серверу Apache на ws22 командой `telnet` (обращаться по адресу r2 и порту 8080)
 
-- ![DNAT telnet](src/screens/7_4_DNAT_telnet.png)
+- ![DNAT telnet](screens/7_4_DNAT_telnet.png)
 
 ## Part 8. Дополнительно. Знакомство с **SSH Tunnels**
 
 > 1. Запустить веб-сервер **Apache** на ws22 только на localhost
 
-- ![localhost ws22](src/screens/8_localhost_ws22.png)
-- ![localhost r2](src/screens/8_localhost_r2.png)
+- ![localhost ws22](screens/8_localhost_ws22.png)
+- ![localhost r2](screens/8_localhost_r2.png)
 
 > 2. Воспользоваться *Local TCP forwarding* с ws21 до ws22, чтобы получить доступ к веб-серверу на ws22 с ws21
 
 - Получаем доступ к вебсервису на ws22 с ws21. Для Local TCP forwarding применяется команда ssh -L local_port:destination:destination_port ssh_server_ip
 
-- ![connect ws21 to ws22](src/screens/8_ws21_connect.png)
+- ![connect ws21 to ws22](screens/8_ws21_connect.png)
 
 - Проверяем подключение
 
-- ![connect check ws21 to ws22](src/screens/8_ws21_check.png)
+- ![connect check ws21 to ws22](screens/8_ws21_check.png)
 
 > 3. Воспользоваться *Remote TCP forwarding* c ws11 до ws22, чтобы получить доступ к веб-серверу на ws22 с ws11
 
 - Получаем доступ к вебсервису на ws22 с ws11. Для Remote TCP forwarding применяется команда ssh -R remote_port:destination:destination_port ssh_server_ip
 
-- ![connect ws11 to ws22](src/screens/8_ws11_connect.png)
+- ![connect ws11 to ws22](screens/8_ws11_connect.png)
 
 - Проверяем подключение
 
-- ![connect check ws11 to ws22](src/screens/8_ws11_check.png)
+- ![connect check ws11 to ws22](screens/8_ws11_check.png)
